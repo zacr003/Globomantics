@@ -1,8 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
+import { useContext } from "react";
 import currencyFormatter from "../helpers/currencyFormatter";
 import defaultPhoto from "../helpers/defaultPhoto";
+import { navigationContext } from "./app";
+import Bids from "./bids";
 
-const House = ({ house }) => {
+
+
+const House = () => {
+    const { param: house } = useContext(navigationContext);
     return (
         <div className="row">
             <div className="col-6">
@@ -31,6 +37,7 @@ const House = ({ house }) => {
                 <div className="row">
                     <div className="col-12 mt-3">{house.description}</div>
                 </div>
+                <Bids house={house} />
             </div>
         </div>
     );
